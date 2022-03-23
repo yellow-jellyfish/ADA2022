@@ -12,8 +12,8 @@ class Order:
     @staticmethod
     def create(body):
         session = Session()
-        order = OrderDAO(body['customer_id'], body['customer_id'], body['delivery_date'],body['order_id'],
-        datetime.now(),datetime.strptime(body['order_date'], '%Y-%m-%d %H:%M:%S.%f'), StatusDAO(STATUS_CREATED, datetime.now()))
+        order = OrderDAO(body['customer_id'], body['product_id'],
+        datetime.now(),datetime.strptime(body['delivery_date'], '%Y-%m-%d %H:%M:%S.%f'), StatusDAO(STATUS_CREATED, datetime.now()))
         session.add(order)
         session.commit()
         session.refresh(order)
@@ -32,7 +32,7 @@ class Order:
             text_out = {
                 "customer_id:": order.customer_id,
                 "product_id": order.product_id,
-                "order_id": order.order_id,
+                "order_id": order.id,
                 "order_date": order.order_date.isoformat(),
                 "delivery_date": order.delivery_date.isoformat(),
                 "status": {

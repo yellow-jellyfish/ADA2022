@@ -1,5 +1,4 @@
-STATUS_CREATED = "New order"
-STATUS_PROCESSED = "Payment being processed"
+STATUS_DELIVERED = "Delivered"
+STATUS_CREATED = "Created"
 STATUS_CANCELED = "Canceled"
 STATUS_DELIVERING = "Delivering"
-STATUS_CLOSED ="Closed"
